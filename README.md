@@ -56,7 +56,7 @@ El proyecto incluye un archivo `docker-compose.yml` preconfigurado para levantar
 Abrí una terminal y ejecutá:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/MatiasMeletto/challenge-lanus.git
 cd challenge-lanus
 pnpm install
 ```
