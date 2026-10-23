@@ -3,12 +3,14 @@ import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/session";
 
 export async function GET(
-  request: Request,
+  _request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const userId = await getSession();
-    if (!userId) return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    if (!userId) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    }
 
     const { id } = await params;
 
@@ -21,8 +23,7 @@ export async function GET(
     }
 
     return NextResponse.json({ movement }, { status: 200 });
-  } catch (error) {
-    const err = error as { message?: string; status?: number };
-    return NextResponse.json({ error: err.message }, { status: err.status || 500 });
+  } catch {
+    return NextResponse.json({ error: "Error interno del servidor" }, { status: 500 });
   }
 }

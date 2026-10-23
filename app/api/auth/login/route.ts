@@ -4,14 +4,15 @@ import { z } from "zod";
 import { createSession } from "@/lib/session";
 
 const loginSchema = z.object({
-  email: z.string().min(1, "El email es obligatorio"),
+  email: z.string("El formato del email es inválido").trim(),
   password: z.string().min(1, "La contraseña es obligatoria"),
+  rememberMe: z.boolean().optional().default(false),
 });
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { email, password } = loginSchema.parse(body);
+    const { email, password, rememberMe } = loginSchema.parse(body);
 
     const user = await prisma.user.findUnique({
       where: { email },
@@ -24,7 +25,7 @@ export async function POST(request: Request) {
       );
     }
 
-    await createSession(user.id);
+    await createSession(user.id, rememberMe);
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {

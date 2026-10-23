@@ -35,7 +35,7 @@ export default function Home() {
     fetchDashboard();
   }, []);
 
-  const displayName = data?.user.name.replace(/^Usuario\s+/i, "") || "Granate";
+  const displayName = data?.user?.name?.replace(/^Usuario\s+/i, "") || "Granate";
 
   return (
     <div className="min-h-screen bg-background pb-[100px] md:pb-12 md:pl-64">
