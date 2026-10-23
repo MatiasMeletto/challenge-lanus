@@ -188,13 +188,13 @@ export default function MovementDetailPage() {
             <button
               type="button"
               onClick={handleCopyId}
-              className="flex-1 h-[54px] bg-gray-100 text-text-main rounded-2xl font-medium text-sm flex items-center justify-center hover:bg-gray-200 transition-colors cursor-pointer"
+              className="w-full sm:flex-1 h-[54px] shrink-0 bg-gray-100 text-text-main rounded-2xl font-medium text-sm flex items-center justify-center hover:bg-gray-200 transition-colors cursor-pointer"
             >
               {copied ? "¡Código copiado!" : "Copiar código"}
             </button>
             <Link
               href="/movimientos"
-              className="flex-1 h-[54px] bg-granate text-white rounded-2xl shadow-[0px_8px_30px_rgba(0,0,0,0.06)] font-medium text-sm flex items-center justify-center hover:bg-[#631522] transition-colors"
+              className="w-full sm:flex-1 h-[54px] shrink-0 bg-granate text-white rounded-2xl shadow-[0px_8px_30px_rgba(0,0,0,0.06)] font-medium text-sm flex items-center justify-center hover:bg-[#631522] transition-colors"
             >
               Ver todos los movimientos
             </Link>
