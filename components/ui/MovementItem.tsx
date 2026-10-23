@@ -1,4 +1,4 @@
-type MovementType = "SUS" | "CASH_IN" | "CASH_OUT";
+export type MovementType = "SUS" | "CASH_IN" | "CASH_OUT";
 
 export default function MovementItem({
   title,
@@ -18,7 +18,7 @@ export default function MovementItem({
   return (
     <div className="w-full h-[92px] bg-white rounded-2xl shadow-[0px_8px_30px_rgba(0,0,0,0.06)] flex items-center justify-between px-4 sm:px-6">
       <div className="flex items-center gap-4">
-        {/* Caja del icono */}
+        {/* box del icono */}
         <div
           className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${
             isSus ? "bg-sus-bg" : isCashIn ? "bg-cash-in-bg" : "bg-cash-out-bg"
