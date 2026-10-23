@@ -4,7 +4,7 @@ import { z } from "zod";
 import { createSession } from "@/lib/session";
 
 const loginSchema = z.object({
-  email: z.string("El formato del email es inválido"),
+  email: z.string().min(1, "El email es obligatorio"),
   password: z.string().min(1, "La contraseña es obligatoria"),
 });
 
