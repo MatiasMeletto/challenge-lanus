@@ -33,3 +33,14 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Oculta el ojo nativo en Microsoft Edge */
+input::-ms-reveal {
+  display: none;
+}
+
+/* Oculta el ojo nativo en Google Chrome / Webkit */
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button {
+  display: none !important;
+}
