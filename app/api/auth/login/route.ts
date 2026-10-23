@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import { z } from "zod";
 import { createSession } from "@/lib/session";
-
-const prisma = new PrismaClient();
 
 const loginSchema = z.object({
   email: z.string("El formato del email es inválido"),
